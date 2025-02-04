@@ -1,0 +1,9 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.homepage > section {
+  padding: var(--spacing-xl) var(--spacing-lg);
+} 
