@@ -1,4 +1,9 @@
 import styles from './ShowcaseProjects.module.css'
+import PrimaryButton from '../buttons/PrimaryButton'
+import SecondaryButton from '../buttons/SecondaryButton'
+import studentPortalImage from '../../assets/images/student-portal.png'
+import EventSoftwareImage from '../../assets/images/event-software.jpg'
+import resourcesHubImage from '../../assets/images/simply-work.webp'
 
 function ProjectCard({ title, description, tech, image, github, demo }) {
   return (
@@ -13,11 +18,6 @@ function ProjectCard({ title, description, tech, image, github, demo }) {
             {github && (
               <a href={github} target="_blank" rel="noopener noreferrer" className={styles.link}>
                 GitHub
-              </a>
-            )}
-            {demo && (
-              <a href={demo} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                Live Demo
               </a>
             )}
           </div>
@@ -44,25 +44,22 @@ function ShowcaseProjects() {
       title: "Student Portal",
       description: "A comprehensive portal for managing student academic records and resources.",
       tech: ["React", "Node.js", "MongoDB"],
-      image: "/placeholder-project-1.jpg",
+      image: studentPortalImage,
       github: "https://github.com/mucosa/student-portal",
-      demo: "https://demo.student-portal.mucosa.org"
     },
     {
       title: "Event Management System",
       description: "Digital platform for organizing and managing MUCOSA community events.",
       tech: ["Vue.js", "Firebase", "Tailwind"],
-      image: "/placeholder-project-2.jpg",
+      image: EventSoftwareImage,
       github: "https://github.com/mucosa/event-system",
-      demo: "https://events.mucosa.org"
     },
     {
       title: "Learning Resources Hub",
       description: "Centralized platform for sharing educational resources and tutorials.",
       tech: ["Next.js", "GraphQL", "PostgreSQL"],
-      image: "/placeholder-project-3.jpg",
+      image: resourcesHubImage,
       github: "https://github.com/mucosa/learning-hub",
-      demo: "https://learn.mucosa.org"
     }
   ]
 
@@ -83,12 +80,12 @@ function ShowcaseProjects() {
         </div>
 
         <div className={styles.cta}>
-          <button className={styles.submitButton}>
+          <PrimaryButton>
             Submit Your Project
-          </button>
-          <button className={styles.viewAllButton}>
+          </PrimaryButton>
+          <SecondaryButton>
             View All Projects
-          </button>
+          </SecondaryButton>
         </div>
       </div>
     </section>
