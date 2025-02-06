@@ -12,6 +12,9 @@ function NewsCard({ image, category, title, excerpt, date }) {
           className={styles.image}
           style={{ backgroundImage: `url(${image})` }}
         />
+        <div className={styles.imageOverlay}>
+          <p className={styles.overlayText}>{excerpt}</p>
+        </div>
         <span className={styles.category}>{category}</span>
       </div>
       <div className={styles.content}>

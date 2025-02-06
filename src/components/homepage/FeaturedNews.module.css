@@ -1,6 +1,6 @@
 .newsSection {
   padding: var(--spacing-xl) 0;
-  background-color: var(--color-white);
+  background-color: var(--color-gray-50);
 }
 
 .container {
@@ -117,6 +117,56 @@
   background-size: cover;
   background-position: center;
   background-color: #f0f0f0; /* Placeholder color */
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+  background: linear-gradient(135deg, rgba(161, 230, 25, 0.5) 10%, rgba(61, 64, 168, 0.5) 90%);
+  backdrop-filter: blur(3px); 
+}
+
+.imageContainer:hover .imageOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlayText {
+  color: var(--color-gray-100);
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  padding: var(--spacing-xl);
+  width : 100%;
+  line-height: 1.3;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.imageContainer:hover .overlayText {
+  transform: translateY(0);
+}
+
+.category {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 4px var(--spacing-sm);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 2; /* Ensure category is above overlay */
 }
 
 .category {
