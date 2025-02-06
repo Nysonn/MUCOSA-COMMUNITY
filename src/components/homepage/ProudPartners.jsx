@@ -1,5 +1,5 @@
 import styles from './ProudPartners.module.css';
-import PrimaryButton from '../buttons/PrimaryButton';
+import PrimaryButton from '../Buttons/PrimaryButton';
 import MicrosoftImage from '../../assets/icons/microsoft-logo.png';
 import GoogleImage from '../../assets/icons/google-g.png';
 import GitHubImage from '../../assets/icons/github.png';
