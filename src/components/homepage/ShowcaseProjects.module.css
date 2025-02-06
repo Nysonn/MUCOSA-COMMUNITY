@@ -1,5 +1,5 @@
 .showcaseSection {
-  background-color: #f8f9fa;
+  background: linear-gradient(to right, #ffffff, #e9ecef);
   padding: var(--spacing-xl) 0;
 }
 

@@ -1,6 +1,8 @@
 import styles from './Hero.module.css'
 import heroVideo from '../../../src/assets/videos/drone-vid.mp4'
 import { useRef, useEffect } from 'react'
+import PrimaryButton from '../Buttons/PrimaryButton'
+import SecondaryButton from '../Buttons/SecondaryButton'
 
 function Hero() {
   const videoRef = useRef(null);
@@ -32,8 +34,8 @@ function Hero() {
             Empowering Future Tech Leaders to Connect, Learn and Innovate with <span className={styles.highlight}>MUCOSA</span>
           </p>
           <div className={styles.cta}>
-            <button className={styles.primaryButton}>Join Community</button>
-            <button className={styles.secondaryButton}>Learn More</button>
+            <PrimaryButton>Join Community</PrimaryButton>
+            <SecondaryButton>Learn More</SecondaryButton>
           </div>
         </div>
       </div>
