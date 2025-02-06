@@ -1,10 +1,10 @@
-import styles from './ProudPartners.module.css'
-import PrimaryButton from '../buttons/PrimaryButton'
-import MicrosoftImage from '../../assets/icons/microsoft-logo.png'
-import GoogleImage from '../../assets/icons/google-logo.png'
-import GitHubImage from '../../assets/icons/github.png'
-import chatGPT from '../../assets/icons/chat-gpt.png'
-import ZoomImage from '../../assets/icons/zoom.png'
+import styles from './ProudPartners.module.css';
+import PrimaryButton from '../buttons/PrimaryButton';
+import MicrosoftImage from '../../assets/icons/microsoft-logo.png';
+import GoogleImage from '../../assets/icons/google-g.png';
+import GitHubImage from '../../assets/icons/github.png';
+import chatGPT from '../../assets/icons/chat-gpt.png';
+import ZoomImage from '../../assets/icons/zoom.png';
 
 function PartnerLogo({ name, logo, website }) {
   return (
@@ -20,7 +20,7 @@ function PartnerLogo({ name, logo, website }) {
         title={name}
       />
     </a>
-  )
+  );
 }
 
 function ProudPartners() {
@@ -50,7 +50,7 @@ function ProudPartners() {
       logo: ZoomImage,
       website: "https://zoom.us"
     }
-  ]
+  ];
 
   return (
     <section className={styles.partnersSection}>
@@ -78,7 +78,7 @@ function ProudPartners() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default ProudPartners 
+export default ProudPartners;

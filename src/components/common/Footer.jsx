@@ -1,4 +1,12 @@
 import styles from './Footer.module.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { 
+  faEnvelope,
+  faMapMarkerAlt,
+  faPhone
+} from "@fortawesome/free-solid-svg-icons"
+import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import musocaLogo from '../../assets/icons/mucosa-logo.png'
 
 function Footer() {
   const quickLinks = [
@@ -28,22 +36,40 @@ function Footer() {
       <div className={styles.container}>
         <div className={styles.mainContent}>
           <div className={styles.brandSection}>
-            <div className={styles.logo}>MUCOSA</div>
+            <div className={styles.logo}>
+              <img src={musocaLogo} alt="MUCOSA Logo" className={styles.logoImage} />
+              <span className={styles.logoText}>MUCOSA</span>
+            </div>
             <p className={styles.description}>
               Empowering computing students through community, innovation, and practical learning.
             </p>
+            <div className={styles.contactInfo}>
+              <div className={styles.contactItem}>
+                <FontAwesomeIcon icon={faEnvelope} />
+                <span>info@mucosa.org</span>
+              </div>
+              <div className={styles.contactItem}>
+                <FontAwesomeIcon icon={faPhone} />
+                <span>+(256) 123-456-789</span>
+              </div>
+              <div className={styles.contactItem}>
+                <FontAwesomeIcon icon={faMapMarkerAlt} />
+                <span>Mbarara University of Science and Technology</span>
+              </div>
+            </div>
             <div className={styles.socialLinks}>
-              {socials.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                >
-                  <img src={social.icon} alt={social.name} />
-                </a>
-              ))}
+              <a href="https://github.com/mucosa" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <FaGithub />
+              </a>
+              <a href="https://twitter.com/mucosa" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <FaTwitter />
+              </a>
+              <a href="https://linkedin.com/company/mucosa" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <FaLinkedin />
+              </a>
+              <a href="https://instagram.com/mucosa" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <FaInstagram />
+              </a>
             </div>
           </div>
 
@@ -70,11 +96,19 @@ function Footer() {
               </ul>
             </div>
 
-            <div className={styles.contactColumn}>
+            <div className={styles.linkColumn}>
               <h3>Contact Us</h3>
-              <p>Faculty of Computing and Informatics</p>
-              <p>Mbarara University of Science and Technology</p>
-              <p>Email: info@mucosa.org</p>
+              <ul>
+                <li>
+                  <a href="/contact">Faculty of Computing and Informatics</a>
+                </li>
+                <li>
+                  <a href="/contact">Mbarara University of Science and Technology</a>
+                </li>
+                <li>
+                  <a href="/contact">Email: info@mucosa.org</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
