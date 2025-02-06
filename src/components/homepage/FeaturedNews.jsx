@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import styles from './FeaturedNews.module.css'
-import featurednews from '../../assets/images/tech-events.jpg'
-import codingComm from '../../assets/images/coding-comm.jpg'
-import gamingConsole from '../../assets/images/gaming-console.jpg'
+import { useState, useEffect, useRef } from 'react';
+import styles from './FeaturedNews.module.css';
+import featurednews from '../../assets/images/tech-events.jpg';
+import codingComm from '../../assets/images/coding-comm.jpg';
+import gamingConsole from '../../assets/images/gaming-console.jpg';
 
 function NewsCard({ image, category, title, excerpt, date }) {
   return (
@@ -26,11 +26,13 @@ function NewsCard({ image, category, title, excerpt, date }) {
         </div>
       </div>
     </article>
-  )
+  );
 }
 
 function FeaturedNews() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef(null);
 
   const news = [
     {
@@ -54,15 +56,34 @@ function FeaturedNews() {
       excerpt: 'Learn the latest web development technologies in our comprehensive workshop series.',
       date: 'March 5, 2024'
     }
-  ]
+  ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % news.length)
-  }
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % news.length);
+    }, 3000); // Change slide every 3 seconds
+  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + news.length) % news.length)
-  }
+  const stopInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  useEffect(() => {
+    startInterval();
+    return () => stopInterval(); // Clean up the interval on component unmount
+  }, [news.length]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    stopInterval();
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    startInterval();
+  };
 
   return (
     <section className={styles.newsSection}>
@@ -73,15 +94,11 @@ function FeaturedNews() {
         </div>
         
         <div className={styles.carousel}>
-          <button 
-            className={`${styles.carouselButton} ${styles.prev}`}
-            onClick={prevSlide}
-            aria-label="Previous slide"
+          <div 
+            className={styles.carouselTrack}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            ‹
-          </button>
-          
-          <div className={styles.carouselTrack}>
             {news.map((item, index) => (
               <div
                 key={index}
@@ -94,23 +111,13 @@ function FeaturedNews() {
               </div>
             ))}
           </div>
-
-          <button 
-            className={`${styles.carouselButton} ${styles.next}`}
-            onClick={nextSlide}
-            aria-label="Next slide"
-          >
-            ›
-          </button>
         </div>
 
         <div className={styles.indicators}>
           {news.map((_, index) => (
             <button
               key={index}
-              className={`${styles.indicator} ${
-                index === currentSlide ? styles.active : ''
-              }`}
+              className={`${styles.indicator} ${index === currentSlide ? styles.active : ''}`}
               onClick={() => setCurrentSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -118,7 +125,7 @@ function FeaturedNews() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturedNews 
+export default FeaturedNews;
