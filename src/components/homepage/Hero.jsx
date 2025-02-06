@@ -28,15 +28,8 @@ function Hero() {
 
       <div className={styles.container}>
         <div className={styles.content}>
-          <h1 className={styles.title}>
-            Welcome to <span className={styles.highlight}>MUCOSA</span>
-          </h1>
-          <p className={styles.subtitle}>
-            Empowering Computing Students at Mbarara University
-          </p>
           <p className={styles.description}>
-            Join our community of passionate tech enthusiasts, where we share knowledge,
-            build projects, and grow together in the world of technology.
+            Empowering Future Tech Leaders to Connect, Learn and Innovate with <span className={styles.highlight}>MUCOSA</span>
           </p>
           <div className={styles.cta}>
             <button className={styles.primaryButton}>Join Community</button>
@@ -48,4 +41,4 @@ function Hero() {
   )
 }
 
-export default Hero 
+export default Hero;

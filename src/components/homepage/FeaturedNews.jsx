@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import styles from './FeaturedNews.module.css'
+import featurednews from '../../assets/images/tech-events.jpg'
+import codingComm from '../../assets/images/coding-comm.jpg'
+import gamingConsole from '../../assets/images/gaming-console.jpg'
 
 function NewsCard({ image, category, title, excerpt, date }) {
   return (
@@ -28,21 +31,21 @@ function FeaturedNews() {
 
   const news = [
     {
-      image: '/placeholder-news-1.jpg', // Replace with actual image paths
+      image: gamingConsole, 
       category: 'Technology',
       title: 'MUCOSA Hosts Successful Tech Innovation Summit',
       excerpt: 'Over 200 students participated in our annual technology innovation summit, showcasing groundbreaking projects.',
       date: 'March 10, 2024'
     },
     {
-      image: '/placeholder-news-2.jpg',
+      image: codingComm,
       category: 'Community',
       title: 'New Mentorship Program Launches',
       excerpt: 'Leading industry professionals join forces with MUCOSA to mentor computing students.',
       date: 'March 8, 2024'
     },
     {
-      image: '/placeholder-news-3.jpg',
+      image: featurednews,
       category: 'Education',
       title: 'Workshop Series: Modern Web Development',
       excerpt: 'Learn the latest web development technologies in our comprehensive workshop series.',
