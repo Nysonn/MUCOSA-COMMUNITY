@@ -1,11 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/common/Header'
-import Footer from './components/common/Footer'
-import HomePage from './pages/HomePage'
-import NewsPage from './pages/NewsPage'
-import EventsPage from './pages/EventsPage'
-import CareerPage from './pages/CareerPage'
-import AboutPage from './pages/AboutPage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import HomePage from './pages/HomePage';
+import NewsPage from './pages/NewsPage';
+import EventsPage from './pages/EventsPage';
+import CareerPage from './pages/CareerPage';
+import AboutPage from './pages/AboutPage';
+import ErrorPage from '../src/components/common/Error';
 
 function App() {
   return (
@@ -19,12 +20,13 @@ function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/career" element={<CareerPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>
         <Footer />
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

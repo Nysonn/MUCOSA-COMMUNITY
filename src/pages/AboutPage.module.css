@@ -442,27 +442,43 @@
   }
 
   .teamMember {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .memberImage {
+    height: 200px;
+    position: relative;
+  }
+
+  .memberImage img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .memberInfo {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
   }
 
   .memberName {
     font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
   }
 
   .memberRole {
     font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
   }
 
   .memberBio {
     font-size: 0.85rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
   }
 
   .socialLinks {
-    gap: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
   }
 
   .socialLink img {

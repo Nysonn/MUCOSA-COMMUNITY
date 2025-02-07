@@ -3,6 +3,7 @@ import heroVideo from '../../../src/assets/videos/drone-vid.mp4'
 import { useRef, useEffect } from 'react'
 import PrimaryButton from '../Buttons/PrimaryButton'
 import SecondaryButton from '../Buttons/SecondaryButton'
+import { Link } from "react-router-dom";
 
 function Hero() {
   const videoRef = useRef(null);
@@ -34,8 +35,12 @@ function Hero() {
             Empowering Future Tech Leaders to Connect, Learn and Innovate with <span className={styles.highlight}>MUCOSA</span>
           </p>
           <div className={styles.cta}>
+            <Link to="/about">
             <PrimaryButton>Join Community</PrimaryButton>
+            </Link>
+            <Link to="/about">
             <SecondaryButton>Learn More</SecondaryButton>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import moureenImage from '../../src/assets/images/moureenImage.jpg'
 import prossyImage from '../../src/assets/images/prossyImage.jpg'
 import sarahImage from '../../src/assets/images/sarahImage.jpg'
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import PrimaryButton from  '../../src/components/Buttons/PrimaryButton'
 
 function VisionMission() {
   return (
@@ -174,13 +175,13 @@ function ContactForm() {
           rows={5}
         />
       </div>
-      <button 
+      <PrimaryButton 
         type="submit" 
         className={styles.submitButton}
         disabled={status === 'sending'}
       >
         {status === 'sending' ? 'Sending...' : 'Send Message'}
-      </button>
+      </PrimaryButton >
       {status === 'success' && (
         <p className={styles.successMessage}>
           Thank you for your message! We'll get back to you soon.
