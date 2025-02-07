@@ -22,6 +22,28 @@ function Header() {
     setMenuOpen(false);
   }, [location]);
 
+  // Disable scrolling when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.style.position = 'fixed';  // Prevent movement
+      document.body.style.touchAction = 'none'; // Prevent touch scrolling
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.position = '';
+      document.body.style.touchAction = '';
+    }
+  
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.position = '';
+      document.body.style.touchAction = '';
+    };
+  }, [menuOpen]);  
+
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
