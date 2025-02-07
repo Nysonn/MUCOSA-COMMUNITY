@@ -1,5 +1,16 @@
 import { useState } from 'react'
 import styles from './CareerPage.module.css'
+import frontendImage from '../assets/icons/frontend.png'
+import BackendImage from '../assets/icons/backend-icon.png'
+import FullStackImage from '../assets/icons/full-stack.png'
+import MobileAppImage from '../assets/icons/mobile-app.png'
+import DevOps from '../assets/icons/dev-ops.png'
+import DataAnalyst from '../assets/icons/data-analyst.png'
+import MachineLearnig from '../assets/icons/machine-learning.png'
+import DataEngImage from '../assets/icons/data-eng.png'
+import CyberAnalyst from '../assets/icons/cyber.png'
+import HackerIcon from '../assets/icons/HackerIcon.png'
+import JsIcon from '../assets/icons/javascript.png'
 
 function RoadmapSection({ title, items }) {
   return (
@@ -100,27 +111,69 @@ function CareerPage() {
       {
         title: "Frontend Developer",
         description: "Build user interfaces and interactive web applications",
-        icon: "/career-icons/frontend.svg",
+        icon: frontendImage,
         skills: ["HTML", "CSS", "JavaScript", "React", "Vue.js"]
       },
       {
         title: "Backend Developer",
         description: "Develop server-side logic and databases",
-        icon: "/career-icons/backend.svg",
+        icon: BackendImage,
         skills: ["Node.js", "Python", "Java", "SQL", "APIs"]
       },
-      // Add more roles...
+      {
+        title: "Full Stack Developer",
+        description: "Handle both frontend and backend development",
+        icon: FullStackImage,
+        skills: ["JavaScript", "Node.js", "React", "MongoDB", "REST APIs"]
+      },
+      {
+        title: "Mobile App Developer",
+        description: "Develop mobile applications for Android and iOS",
+        icon: MobileAppImage,
+        skills: ["React Native", "Flutter", "Swift", "Kotlin"]
+      },
+      {
+        title: "DevOps Engineer",
+        description: "Manage infrastructure, CI/CD pipelines, and deployments",
+        icon: DevOps,
+        skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Linux"]
+      }
     ],
     'Data Science': [
       {
         title: "Data Analyst",
         description: "Analyze data and create insights",
-        icon: "/career-icons/data-analyst.svg",
+        icon: DataAnalyst,
         skills: ["Python", "SQL", "Statistics", "Data Visualization"]
       },
-      // Add more roles...
+      {
+        title: "Machine Learning Engineer",
+        description: "Develop AI models and machine learning algorithms",
+        icon: MachineLearnig,
+        skills: ["TensorFlow", "PyTorch", "Deep Learning", "Big Data"]
+      },
+      {
+        title: "Data Engineer",
+        description: "Build data pipelines and manage databases",
+        icon: DataEngImage,
+        skills: ["SQL", "ETL", "BigQuery", "Spark", "Kafka"]
+      }
+    ],
+    'Cybersecurity': [
+      {
+        title: "Cybersecurity Analyst",
+        description: "Protect systems and networks from cyber threats",
+        icon: CyberAnalyst,
+        skills: ["Network Security", "Ethical Hacking", "Penetration Testing"]
+      },
+      {
+        title: "Ethical Hacker",
+        description: "Test security systems by simulating cyber attacks",
+        icon: HackerIcon,
+        skills: ["Penetration Testing", "Kali Linux", "Python", "Metasploit"]
+      }
     ]
-  }
+  };  
 
   const jobs = [
     {
@@ -136,18 +189,92 @@ function CareerPage() {
       ],
       link: "https://example.com/apply"
     },
-    // Add more jobs...
-  ]
+    {
+      title: "Frontend Developer",
+      company: "InnovateX Solutions",
+      location: "Remote",
+      type: "Contract",
+      description: "We need a skilled frontend developer to create responsive web applications.",
+      requirements: [
+        "Proficiency in HTML, CSS, and JavaScript",
+        "Experience with React.js or Vue.js",
+        "Strong UI/UX understanding"
+      ],
+      link: "https://example.com/apply"
+    },
+    {
+      title: "Data Analyst",
+      company: "Data Insights Ltd.",
+      location: "Nairobi, Kenya",
+      type: "Full-time",
+      description: "Analyze business data and provide key insights to drive decision-making.",
+      requirements: [
+        "Experience in SQL and Python",
+        "Strong data visualization skills",
+        "Knowledge of statistical analysis"
+      ],
+      link: "https://example.com/apply"
+    },
+    {
+      title: "Mobile App Developer",
+      company: "StartUp App Hub",
+      location: "Kampala, Uganda",
+      type: "Part-time",
+      description: "Looking for an experienced mobile app developer to work on our Android and iOS apps.",
+      requirements: [
+        "Experience in React Native or Flutter",
+        "Knowledge of Firebase and REST APIs",
+        "Previous experience in mobile app development"
+      ],
+      link: "https://example.com/apply"
+    },
+    {
+      title: "DevOps Engineer",
+      company: "Cloud Nexus",
+      location: "Remote",
+      type: "Full-time",
+      description: "Manage cloud infrastructure and CI/CD pipelines for our global team.",
+      requirements: [
+        "Experience with AWS, Docker, and Kubernetes",
+        "Knowledge of automation and scripting",
+        "Proficiency in Linux systems"
+      ],
+      link: "https://example.com/apply"
+    }
+  ];  
 
   const resources = [
     {
       title: "Free Coding Bootcamp",
       description: "Learn to code with our comprehensive online curriculum",
-      icon: "/resource-icons/bootcamp.svg",
+      icon: DevOps,
       link: "https://example.com/bootcamp"
     },
-    // Add more resources...
-  ]
+    {
+      title: "JavaScript Mastery Course",
+      description: "Advanced JavaScript concepts for web developers",
+      icon: JsIcon,
+      link: "https://example.com/js-course"
+    },
+    {
+      title: "Full-Stack Developer Roadmap",
+      description: "Step-by-step guide to becoming a full-stack developer",
+      icon: FullStackImage,
+      link: "https://example.com/fullstack-roadmap"
+    },
+    {
+      title: "Machine Learning for Beginners",
+      description: "Understand the basics of AI and machine learning",
+      icon: MachineLearnig,
+      link: "https://example.com/ml-course"
+    },
+    {
+      title: "Cybersecurity Essentials",
+      description: "Learn how to protect networks and data from cyber threats",
+      icon: HackerIcon,
+      link: "https://example.com/cybersecurity"
+    }
+  ];  
 
   return (
     <div className={styles.careerPage}>

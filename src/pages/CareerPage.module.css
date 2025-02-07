@@ -1,13 +1,28 @@
 .careerPage {
   padding: var(--spacing-xl) 0;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background: linear-gradient(270deg, #ced4da, #ffffff, #aab0b6);
+  background-size: 200% 200%;
+  animation: gradientMove 50s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
   max-width: var(--breakpoint-xl);
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  margin-top : 90px;
 }
 
 .header {
@@ -44,6 +59,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
+  font-size : 20px;
 }
 
 .tab.active {
@@ -270,3 +286,21 @@
     gap: var(--spacing-sm);
   }
 } 
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .pageDescription {
+    font-size: 1.0rem;
+  }
+
+  .filterButton {
+    font-size : 13px;
+  }
+
+  .tab {
+    font-size : 13px;
+  }
+}
