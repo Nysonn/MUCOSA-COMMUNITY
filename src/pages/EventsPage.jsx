@@ -1,5 +1,14 @@
 import { useState } from 'react'
 import styles from './EventsPage.module.css'
+import MaleDevImage from '../assets/images/male-dev.jpg'
+import MaleDevSeniorImage from '../assets/images/dev-male.jpg'
+import FemaleDevImage from '../assets/images/female-dev.jpg'
+import TechImageEvent from '../assets/images/berlin-tech-event.webp'
+import CommunityTechEvent from '../assets/images/dutch-tech-event.png'
+import BusinessTechEvent from '../assets/images/kenya-tech.jpg'
+import EntTechEvent from '../assets/images/google-event.webp'
+import EducationEvent from '../assets/images/tech-event-sa.jpeg'
+import CareerEvent from '../assets/images/barclena-tech-event.jpg'
 
 function EventCard({ 
   title, 
@@ -174,11 +183,11 @@ function EventsPage() {
       date: { month: "MAR", day: "25" },
       location: "Computer Lab 3, Faculty of Computing",
       description: "Learn modern web development techniques using React and Node.js. Perfect for beginners and intermediate developers.",
-      image: "/event-images/web-dev.jpg",
+      image: CareerEvent,
       category: "workshops",
       organizer: {
         name: "John Doe",
-        avatar: "/avatars/john-doe.jpg"
+        avatar: MaleDevImage
       },
       isRegistrationOpen: true
     },
@@ -187,16 +196,67 @@ function EventsPage() {
       date: { month: "APR", day: "05" },
       location: "Main Hall, Administration Block",
       description: "Connect with leading tech companies and explore internship and job opportunities.",
-      image: "/event-images/career-fair.jpg",
+      image: EducationEvent,
       category: "conferences",
       organizer: {
         name: "Jane Smith",
-        avatar: "/avatars/jane-smith.jpg"
+        avatar: FemaleDevImage
       },
       isRegistrationOpen: true
     },
-    // Add more events...
-  ]
+    {
+      title: "AI & Machine Learning Seminar",
+      date: { month: "APR", day: "18" },
+      location: "Lecture Hall 2, AI Research Center",
+      description: "Experts discuss the future of artificial intelligence and its impact on various industries.",
+      image: EntTechEvent,
+      category: "seminars",
+      organizer: {
+        name: "Mike Johnson",
+        avatar: MaleDevImage
+      },
+      isRegistrationOpen: false
+    },
+    {
+      title: "Music & Tech Innovation Summit",
+      date: { month: "MAY", day: "10" },
+      location: "Auditorium, Music Department",
+      description: "Explore the intersection of music and technology with industry leaders and artists.",
+      image: CommunityTechEvent,
+      category: "conferences",
+      organizer: {
+        name: "Sarah Lee",
+        avatar: FemaleDevImage
+      },
+      isRegistrationOpen: true
+    },
+    {
+      title: "Coding Hackathon 2024",
+      date: { month: "JUN", day: "02" },
+      location: "Innovation Hub, Faculty of Computing",
+      description: "Compete in a 24-hour coding marathon and solve real-world problems.",
+      image: BusinessTechEvent,
+      category: "competitions",
+      organizer: {
+        name: "David Kim",
+        avatar: MaleDevSeniorImage
+      },
+      isRegistrationOpen: true
+    },
+    {
+      title: "Entrepreneurship & Startups Expo",
+      date: { month: "JUL", day: "15" },
+      location: "Business Incubation Center",
+      description: "Network with investors and entrepreneurs to learn about startup growth and funding opportunities.",
+      image: TechImageEvent,
+      category: "expos",
+      organizer: {
+        name: "Emily Brown",
+        avatar: FemaleDevImage
+      },
+      isRegistrationOpen: false
+    }
+  ];  
 
   const filteredEvents = events.filter(event => {
     const matchesCategory = activeCategory === 'all' || event.category === activeCategory
