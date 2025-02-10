@@ -8,5 +8,9 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
+  },
+  server: {
+    host: true, // Allows access on local network
+    port: 5173, // Change port if needed
   }
 })
