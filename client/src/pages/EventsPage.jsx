@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import styles from './EventsPage.module.css'
-import MaleDevImage from '../assets/images/male-dev.jpg'
-import MaleDevSeniorImage from '../assets/images/dev-male.jpg'
-import FemaleDevImage from '../assets/images/female-dev.jpg'
-import TechImageEvent from '../assets/images/berlin-tech-event.webp'
-import CommunityTechEvent from '../assets/images/dutch-tech-event.png'
-import BusinessTechEvent from '../assets/images/kenya-tech.jpg'
-import EntTechEvent from '../assets/images/google-event.webp'
-import EducationEvent from '../assets/images/tech-event-sa.jpeg'
-import CareerEvent from '../assets/images/barclena-tech-event.jpg'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styles from './EventsPage.module.css';
+import MaleDevImage from '../assets/images/male-dev.jpg';
+import MaleDevSeniorImage from '../assets/images/dev-male.jpg';
+import FemaleDevImage from '../assets/images/female-dev.jpg';
+import TechImageEvent from '../assets/images/berlin-tech-event.webp';
+import CommunityTechEvent from '../assets/images/dutch-tech-event.png';
+import BusinessTechEvent from '../assets/images/kenya-tech.jpg';
+import EntTechEvent from '../assets/images/google-event.webp';
+import EducationEvent from '../assets/images/tech-event-sa.jpeg';
+import CareerEvent from '../assets/images/barclena-tech-event.jpg';
+import PrimaryButton from '../components/Buttons/PrimaryButton'
+import SecondaryButton from '../components/Buttons/SecondaryButton';
 
 function EventCard({ 
   title, 
@@ -20,8 +23,6 @@ function EventCard({
   organizer, 
   isRegistrationOpen 
 }) {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   return (
     <div className={styles.eventCard}>
       <div className={styles.imageContainer}>
@@ -45,128 +46,21 @@ function EventCard({
           </div>
         </div>
         <p className={styles.description}>{description}</p>
-        <button 
-          className={`${styles.registerButton} ${!isRegistrationOpen ? styles.disabled : ''}`}
-          onClick={() => isRegistrationOpen && setIsModalOpen(true)}
-        >
-          {isRegistrationOpen ? 'Register Now' : 'Registration Closed'}
-        </button>
-      </div>
-
-      {isModalOpen && (
-        <RegistrationModal 
-          eventTitle={title} 
-          onClose={() => setIsModalOpen(false)} 
-        />
-      )}
-    </div>
-  )
-}
-
-function RegistrationModal({ eventTitle, onClose }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    studentId: '',
-    course: '',
-    yearOfStudy: ''
-  })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
-    onClose()
-  }
-
-  return (
-    <div className={styles.modalOverlay}>
-      <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={onClose}>×</button>
-        <h2>Register for {eventTitle}</h2>
-        <form onSubmit={handleSubmit} className={styles.registrationForm}>
-          <div className={styles.formGroup}>
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="studentId">Student ID</label>
-            <input
-              type="text"
-              id="studentId"
-              value={formData.studentId}
-              onChange={(e) => setFormData({...formData, studentId: e.target.value})}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="course">Course</label>
-            <select
-              id="course"
-              value={formData.course}
-              onChange={(e) => setFormData({...formData, course: e.target.value})}
-              required
-            >
-              <option value="">Select your course</option>
-              <option value="BIT">Bachelor of Information Technology</option>
-              <option value="BCS">Bachelor of Computer Science</option>
-              <option value="BSE">Bachelor of Software Engineering</option>
-            </select>
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="yearOfStudy">Year of Study</label>
-            <select
-              id="yearOfStudy"
-              value={formData.yearOfStudy}
-              onChange={(e) => setFormData({...formData, yearOfStudy: e.target.value})}
-              required
-            >
-              <option value="">Select year</option>
-              <option value="1">First Year</option>
-              <option value="2">Second Year</option>
-              <option value="3">Third Year</option>
-              <option value="4">Fourth Year</option>
-            </select>
-          </div>
-          <button type="submit" className={styles.submitButton}>
-            Submit Registration
-          </button>
-        </form>
+        {isRegistrationOpen ? (
+          <Link to="/register">
+            <PrimaryButton>Register Now</PrimaryButton>
+          </Link>
+        ) : (
+          <PrimaryButton disabled>Registration Closed</PrimaryButton>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
 function EventsPage() {
-  const [activeCategory, setActiveCategory] = useState('all')
-  const [searchQuery, setSearchQuery] = useState('')
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
     'all',
@@ -175,7 +69,7 @@ function EventsPage() {
     'hackathons',
     'meetups',
     'conferences'
-  ]
+  ];
 
   const events = [
     {
@@ -256,14 +150,14 @@ function EventsPage() {
       },
       isRegistrationOpen: false
     }
-  ];  
+  ];    
 
   const filteredEvents = events.filter(event => {
-    const matchesCategory = activeCategory === 'all' || event.category === activeCategory
+    const matchesCategory = activeCategory === 'all' || event.category === activeCategory;
     const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         event.description.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesCategory && matchesSearch
-  })
+                         event.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className={styles.eventsPage}>
@@ -312,7 +206,7 @@ function EventsPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default EventsPage 
+export default EventsPage;
