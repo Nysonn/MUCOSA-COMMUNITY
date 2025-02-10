@@ -7,28 +7,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import musocaLogo from '../../assets/icons/mucosa-logo.png'
+import { Link } from "react-router-dom"
 
 function Footer() {
   const quickLinks = [
-    { name: 'About Us', href: '/about' },
-    { name: 'Events', href: '/events' },
-    { name: 'News', href: '/news' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Projects', href: '/projects' }
+    { name: 'About Us', to: '/about' },
+    { name: 'Events', to: '/events' },
+    { name: 'News', to: '/news' },
+    { name: 'Careers', to: '/career' },
+    { name: 'Projects', to: '/projects' }
   ]
 
   const resources = [
-    { name: 'Learning Hub', href: '/resources/learning' },
-    { name: 'Code Repository', href: '/resources/code' },
-    { name: 'Documentation', href: '/resources/docs' },
-    { name: 'Community Guidelines', href: '/resources/guidelines' }
-  ]
-
-  const socials = [
-    { name: 'GitHub', icon: '/social/github.svg', href: 'https://github.com/mucosa' },
-    { name: 'Twitter', icon: '/social/twitter.svg', href: 'https://twitter.com/mucosa' },
-    { name: 'LinkedIn', icon: '/social/linkedin.svg', href: 'https://linkedin.com/company/mucosa' },
-    { name: 'Instagram', icon: '/social/instagram.svg', href: 'https://instagram.com/mucosa' }
+    { name: 'Learning Hub', to: '/career' },
+    { name: 'Code Repository', to: '/career' },
+    { name: 'Documentation', to: '/career' },
+    { name: 'Community Guidelines', to: '/career' }
   ]
 
   return (
@@ -79,7 +73,7 @@ function Footer() {
               <ul>
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href}>{link.name}</a>
+                    <Link to={link.to}>{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -90,7 +84,7 @@ function Footer() {
               <ul>
                 {resources.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href}>{link.name}</a>
+                    <Link to={link.to}>{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -100,13 +94,13 @@ function Footer() {
               <h3>Contact Us</h3>
               <ul>
                 <li>
-                  <a href="/contact">Faculty of Computing and Informatics</a>
+                  <Link to="https://www.must.ac.ug/university_unit/faculty-of-computing-and-informatics/">Faculty of Computing and Informatics</Link>
                 </li>
                 <li>
-                  <a href="/contact">Mbarara University of Science and Technology</a>
+                  <Link to="https://www.must.ac.ug/">Mbarara University of Science and Technology</Link>
                 </li>
                 <li>
-                  <a href="/contact">Email: info@mucosa.org</a>
+                  <Link to="/about">Email: info@mucosa.org</Link>
                 </li>
               </ul>
             </div>
@@ -116,9 +110,9 @@ function Footer() {
         <div className={styles.bottomBar}>
           <p>&copy; {new Date().getFullYear()} MUCOSA. All rights reserved.</p>
           <div className={styles.legalLinks}>
-            <a href="/privacy">Privacy Policy</a>
+            <Link to="/privacy">Privacy Policy</Link>
             <span className={styles.divider}>|</span>
-            <a href="/terms">Terms of Service</a>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
       </div>

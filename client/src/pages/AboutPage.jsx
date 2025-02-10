@@ -177,7 +177,6 @@ function ContactForm() {
       </div>
       <PrimaryButton 
         type="submit" 
-        className={styles.submitButton}
         disabled={status === 'sending'}
       >
         {status === 'sending' ? 'Sending...' : 'Send Message'}

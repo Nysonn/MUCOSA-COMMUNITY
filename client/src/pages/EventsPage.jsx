@@ -11,7 +11,6 @@ import EntTechEvent from '../assets/images/google-event.webp';
 import EducationEvent from '../assets/images/tech-event-sa.jpeg';
 import CareerEvent from '../assets/images/barclena-tech-event.jpg';
 import PrimaryButton from '../components/Buttons/PrimaryButton'
-import SecondaryButton from '../components/Buttons/SecondaryButton';
 
 function EventCard({ 
   title, 

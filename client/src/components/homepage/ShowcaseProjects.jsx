@@ -1,4 +1,5 @@
 import styles from './ShowcaseProjects.module.css'
+import { Link } from "react-router-dom"
 import PrimaryButton from '../Buttons/PrimaryButton'
 import SecondaryButton from '../Buttons/SecondaryButton'
 import studentPortalImage from '../../assets/images/student-portal.png'
@@ -80,12 +81,16 @@ function ShowcaseProjects() {
         </div>
 
         <div className={styles.cta}>
-          <PrimaryButton>
-            Submit Your Project
-          </PrimaryButton>
-          <SecondaryButton>
-            View All Projects
-          </SecondaryButton>
+          <Link to="#">
+              <PrimaryButton>
+                Submit Your Project
+              </PrimaryButton>
+          </Link>
+          <Link to="/projects">
+              <SecondaryButton>
+                View All Projects
+              </SecondaryButton>
+          </Link>
         </div>
       </div>
     </section>

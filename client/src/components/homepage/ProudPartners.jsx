@@ -5,6 +5,7 @@ import GoogleImage from '../../assets/icons/google-g.png';
 import GitHubImage from '../../assets/icons/github.png';
 import chatGPT from '../../assets/icons/chat-gpt.png';
 import ZoomImage from '../../assets/icons/zoom.png';
+import { Link } from "react-router-dom"
 
 function PartnerLogo({ name, logo, website }) {
   return (
@@ -72,9 +73,11 @@ function ProudPartners() {
           <p className={styles.ctaText}>
             Interested in partnering with MUCOSA?
           </p>
-          <PrimaryButton>
-            Become a Partner
-          </PrimaryButton>
+          <Link to="/become-a-partner">
+              <PrimaryButton>
+                Become a Partner
+              </PrimaryButton>
+          </Link>
         </div>
       </div>
     </section>
