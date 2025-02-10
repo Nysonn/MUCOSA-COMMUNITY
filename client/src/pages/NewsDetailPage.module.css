@@ -224,5 +224,14 @@
   .container {
     margin-top : 90px;
 }
+
+.title {
+    font-size: var(--font-size-2xl);
+}
+
+.avatar {
+    width: 46px;
+    height: 46px;
+}
 }
   
