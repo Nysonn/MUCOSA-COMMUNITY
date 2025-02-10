@@ -67,6 +67,7 @@ function Header() {
             <Link to="/" className={location.pathname === '/' ? styles.active : ''}>Home</Link>
             <Link to="/news" className={location.pathname === '/news' ? styles.active : ''}>News</Link>
             <Link to="/events" className={location.pathname === '/events' ? styles.active : ''}>Events</Link>
+            <Link to="/projects" className={location.pathname === '/projects' ? styles.active : ''}>Projects</Link>
             <Link to="/career" className={location.pathname === '/career' ? styles.active : ''}>Career</Link>
             <Link to="/about" className={location.pathname === '/about' ? styles.active : ''}>About</Link>
           </nav>

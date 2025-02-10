@@ -1,4 +1,5 @@
 import styles from './UpcomingEvents.module.css'
+import {Link} from 'react-router-dom'
 
 function EventCard({ title, date, location, description }) {
   return (
@@ -52,7 +53,9 @@ function UpcomingEvents() {
           ))}
         </div>
         <div className={styles.viewMore}>
+          <Link to="/events">
           <button className={styles.viewMoreButton}>View All Events</button>
+          </Link>
         </div>
       </div>
     </section>

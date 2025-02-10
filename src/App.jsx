@@ -6,6 +6,7 @@ import NewsPage from './pages/NewsPage';
 import EventsPage from './pages/EventsPage';
 import CareerPage from './pages/CareerPage';
 import AboutPage from './pages/AboutPage';
+// import ProjectPage from './pages/ProjectPage';
 import ErrorPage from '../src/components/common/Error';
 
 function App() {
