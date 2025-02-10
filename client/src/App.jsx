@@ -6,7 +6,7 @@ import NewsPage from './pages/NewsPage';
 import EventsPage from './pages/EventsPage';
 import CareerPage from './pages/CareerPage';
 import AboutPage from './pages/AboutPage';
-// import ProjectPage from './pages/ProjectPage';
+import ProjectPage from './pages/ProjectsPage';
 import ErrorPage from '../src/components/common/Error';
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
             <Route path="/news" element={<NewsPage />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/career" element={<CareerPage />} />
+            <Route path="/projects" element={<ProjectPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
