@@ -5,7 +5,7 @@ import studentPortalImage from '../../assets/images/student-portal.png'
 import EventSoftwareImage from '../../assets/images/event-software.jpg'
 import resourcesHubImage from '../../assets/images/simply-work.webp'
 
-function ProjectCard({ title, description, tech, image, github, demo }) {
+function ProjectCard({ title, description, tech, image, github }) {
   return (
     <div className={styles.projectCard}>
       <div className={styles.imageContainer}>

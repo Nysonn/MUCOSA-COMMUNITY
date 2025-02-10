@@ -1,21 +1,35 @@
 import { useState } from 'react';
 import styles from './ProjectsPage.module.css';
-import ProjectImage1 from '../../src/assets/images/student-portal.png'
-import ProjectImage2 from '../../src/assets/images/event-software.jpg'
-import ProjectImage3 from '../../src/assets/images/simply-work.webp'
+import ProjectImage1 from '../../src/assets/images/student-portal.png';
+import ProjectImage2 from '../../src/assets/images/event-software.jpg';
+import ProjectImage3 from '../../src/assets/images/simply-work.webp';
 
-function ProjectCard({ title, description, image, creator, category, link }) {
+function ProjectCard({ title, description, image, link, tech}) {
   return (
     <div className={styles.projectCard}>
       <div className={styles.imageContainer}>
-        <img src={image} alt={title} className={styles.image} />
-        <span className={styles.category}>{category}</span>
+        <div 
+          className={styles.projectImage}
+          style={{ backgroundImage: `url(${image})` }}
+        />
+        <div className={styles.overlay}>
+          <div className={styles.links}>
+            <a href={link} target="_blank" rel="noopener noreferrer" className={styles.link}>
+              Github
+            </a>
+          </div>
+        </div>
       </div>
       <div className={styles.content}>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{description}</p>
-        <div className={styles.creator}>Created by: {creator}</div>
-        <a href={link} target="_blank" rel="noopener noreferrer" className={styles.viewButton}>View Project</a>
+        <h3 className={styles.projectTitle}>{title}</h3>
+        <p className={styles.projectDescription}>{description}</p>
+        <div className={styles.techStack}>
+          {tech.map((item, index) => (
+            <span key={index} className={styles.techItem}>
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -32,50 +46,50 @@ export default function ProjectsPage() {
       title: "Mucosa Music Player",
       description: "A web-based music streaming application for the Mucosa community.",
       image: ProjectImage1,
-      creator: "John Doe",
       category: "web",
-      link: "https://mucosa-music.com"
+      link: "https://mucosa-music.com",
+      tech: ["React", "Node.js", "MongoDB"]
     },
     {
       title: "AI Music Analyzer",
       description: "A tool that analyzes music trends using AI and machine learning.",
       image: ProjectImage2,
-      creator: "Jane Smith",
       category: "AI",
-      link: "https://ai-music-analyzer.com"
+      link: "https://ai-music-analyzer.com",
+      tech: ["Python", "TensorFlow", "Flask"]
     },
     {
       title: "Open-Source Collaboration Platform",
       description: "A platform for developers to collaborate on open-source music tech projects.",
       image: ProjectImage3,
-      creator: "David Kim",
       category: "open-source",
-      link: "https://opensource-music.dev"
+      link: "https://opensource-music.dev",
+      tech: ["Next.js", "GraphQL", "PostgreSQL"]
     },
     {
-        title: "Mucosa Music Player",
-        description: "A web-based music streaming application for the Mucosa community.",
-        image: ProjectImage1,
-        creator: "John Doe",
-        category: "web",
-        link: "https://mucosa-music.com"
-      },
-      {
-        title: "AI Music Analyzer",
-        description: "A tool that analyzes music trends using AI and machine learning.",
-        image: ProjectImage2,
-        creator: "Jane Smith",
-        category: "AI",
-        link: "https://ai-music-analyzer.com"
-      },
-      {
-        title: "Open-Source Collaboration Platform",
-        description: "A platform for developers to collaborate on open-source music tech projects.",
-        image: ProjectImage3,
-        creator: "David Kim",
-        category: "open-source",
-        link: "https://opensource-music.dev"
-      }
+      title: "Mucosa Music Player",
+      description: "A web-based music streaming application for the Mucosa community.",
+      image: ProjectImage1,
+      category: "web",
+      link: "https://mucosa-music.com",
+      tech: ["React", "Node.js", "MongoDB"]
+    },
+    {
+      title: "AI Music Analyzer",
+      description: "A tool that analyzes music trends using AI and machine learning.",
+      image: ProjectImage2,
+      category: "AI",
+      link: "https://ai-music-analyzer.com",
+      tech: ["Python", "TensorFlow", "Flask"]
+    },
+    {
+      title: "Open-Source Collaboration Platform",
+      description: "A platform for developers to collaborate on open-source music tech projects.",
+      image: ProjectImage3,
+      category: "open-source",
+      link: "https://opensource-music.dev",
+      tech: ["Next.js", "GraphQL", "PostgreSQL"]
+    }
   ];
 
   const filteredProjects = projects.filter(project => {
